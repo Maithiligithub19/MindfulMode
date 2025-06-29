@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>📝 Tasks - MindfulMode</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/tasks.css">
+  </head>
+  <body>
+    <div class="page-container">
+      <div class="floating-bg">
+        <div class="float-element" style="--delay: 0s;">📝</div>
+        <div class="float-element" style="--delay: 1s;">✅</div>
+        <div class="float-element" style="--delay: 2s;">⏰</div>
+        <div class="float-element" style="--delay: 3s;">🎯</div>
+      </div>
+
+      <header class="tasks-header">
+        <button class="back-btn" onclick="navigateTo('index.html')">
+          <span>← Home</span>
+        </button>
+        <div class="header-title">
+          <span class="page-emoji">📝</span>
+          <h1>Things To Do, Not Scroll</h1>
+          <p>Turn productivity into a vibe</p>
+        </div>
+      </header>
+
+      <main class="tasks-main">
+        <div class="tasks-header-section">
+          <div class="task-stats">
+            <div class="stat-item">
+              <span class="stat-number" id="completedToday">0</span>
+              <span class="stat-label">Completed Today</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" id="taskStreak">0</span>
+              <span class="stat-label">Day Streak</span>
+            </div>
+          </div>
+
+          <div class="add-task-section">
+            <div class="task-input-container">
+              <input 
+                type="text" 
+                id="newTaskInput" 
+                class="task-input" 
+                placeholder="What needs to get done? ✨"
+                maxlength="100">
+              <button class="add-task-btn" onclick="addNewTask()">
+                <span>+</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="tasks-container">
+          <div class="tasks-list" id="tasksList">
+            <!-- Tasks will be loaded here -->
+          </div>
+
+          <div class="empty-tasks" id="emptyTasks" style="display: none;">
+            <div class="empty-icon">📝</div>
+            <h3>No tasks yet!</h3>
+            <p>Add some tasks to start your productivity streak</p>
+          </div>
+        </div>
+
+        <!-- Pomodoro Timer -->
+        <div class="pomodoro-section">
+          <div class="pomodoro-card">
+            <h3>🍅 Focus Timer</h3>
+            <div class="timer-display" id="timerDisplay">25:00</div>
+            <div class="timer-controls">
+              <button class="timer-btn" id="startTimerBtn" onclick="startPomodoro()">Start</button>
+              <button class="timer-btn secondary" id="pauseTimerBtn" onclick="pausePomodoro()" style="display: none;">Pause</button>
+              <button class="timer-btn secondary" id="resetTimerBtn" onclick="resetPomodoro()">Reset</button>
+            </div>
+            <div class="timer-settings">
+              <label>
+                Work: <input type="number" id="workMinutes" value="25" min="1" max="60"> min
+              </label>
+              <label>
+                Break: <input type="number" id="breakMinutes" value="5" min="1" max="30"> min
+              </label>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/quotes.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/tasks.js"></script>
+  </body>
+</html>

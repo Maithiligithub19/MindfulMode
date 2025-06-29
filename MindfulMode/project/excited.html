@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>😄 Excited - MindfulMode</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/activities.css">
+  </head>
+  <body>
+    <div class="page-container">
+      <div class="floating-bg">
+        <div class="float-element" style="--delay: 0s;">🎉</div>
+        <div class="float-element" style="--delay: 1s;">⚡</div>
+        <div class="float-element" style="--delay: 2s;">🌟</div>
+        <div class="float-element" style="--delay: 3s;">🚀</div>
+      </div>
+
+      <header class="mood-header">
+        <button class="back-btn" onclick="navigateTo('index.html')">
+          <span>← Home</span>
+        </button>
+        <div class="mood-title">
+          <span class="mood-emoji-large">😄</span>
+          <h1>Excited Mode</h1>
+          <p>Channel that energy!</p>
+        </div>
+        <button class="switch-mood-btn" onclick="navigateTo('index.html')">
+          <span>Switch Mood</span>
+        </button>
+      </header>
+
+      <main class="activities-main">
+        <div class="activities-grid">
+          
+          <!-- Energy Channel -->
+          <div class="activity-card" data-activity="energy-channel">
+            <div class="activity-header">
+              <span class="activity-icon">⚡</span>
+              <h3>Energy Channel</h3>
+              <p>Direct your excitement</p>
+            </div>
+            <div class="activity-content">
+              <div class="breathing-circle" id="energyChannelCircle">
+                <div class="breath-text" id="energyChannelText">Click to Start</div>
+              </div>
+              <div class="breath-controls">
+                <button class="activity-btn" id="startEnergyChannelBtn" onclick="startEnergyChannel()">Start</button>
+                <button class="activity-btn secondary" id="stopEnergyChannelBtn" onclick="stopEnergyChannel()" style="display: none;">Stop</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Excitement Drop -->
+          <div class="activity-card" data-activity="excitement">
+            <div class="activity-header">
+              <span class="activity-icon">🎉</span>
+              <h3>Excitement Drop</h3>
+              <p>What's got you hyped?</p>
+            </div>
+            <div class="activity-content">
+              <textarea 
+                class="gratitude-input" 
+                id="excitementText" 
+                placeholder="What are you excited about right now? Share the energy! ⚡"
+                maxlength="200">
+              </textarea>
+              <button class="activity-btn" onclick="saveExcitement()">
+                <span>Add to hype cloud 🎉</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Pump Up Music -->
+          <div class="activity-card" data-activity="pump-music">
+            <div class="activity-header">
+              <span class="activity-icon">🎵</span>
+              <h3>Pump Up Sounds</h3>
+              <p>High energy vibes</p>
+            </div>
+            <div class="activity-content">
+              <div class="music-player">
+                <div class="music-visual" id="pumpMusicVisual">
+                  <div class="sound-wave"></div>
+                  <div class="sound-wave"></div>
+                  <div class="sound-wave"></div>
+                  <div class="sound-wave"></div>
+                </div>
+                <div class="music-controls">
+                  <button class="activity-btn" id="playPumpBtn" onclick="playPumpMusic()">Play</button>
+                  <button class="activity-btn secondary" id="stopPumpBtn" onclick="stopPumpMusic()" style="display: none;">Stop</button>
+                </div>
+                <div class="music-timer" id="pumpTimer">10:00</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hype Journal -->
+          <div class="activity-card" data-activity="journal">
+            <div class="activity-header">
+              <span class="activity-icon">📖</span>
+              <h3>Hype Journal</h3>
+              <p>Capture your excitement</p>
+            </div>
+            <div class="activity-content">
+              <textarea 
+                class="journal-input" 
+                id="hypeJournalText" 
+                placeholder="What's making you feel so excited? How can you use this energy? 🚀">
+              </textarea>
+              <div class="journal-actions">
+                <button class="activity-btn" onclick="saveHypeJournal()">Save Entry</button>
+                <button class="activity-btn secondary" onclick="exportJournal()">Export as .txt</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </main>
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/quotes.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/activities.js"></script>
+    <script src="js/excited.js"></script>
+  </body>
+</html>

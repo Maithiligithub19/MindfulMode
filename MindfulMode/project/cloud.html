@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>☁️ Your Cloud - MindfulMode</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/cloud.css">
+  </head>
+  <body>
+    <div class="page-container">
+      <div class="floating-bg">
+        <div class="float-element" style="--delay: 0s;">☁️</div>
+        <div class="float-element" style="--delay: 1s;">✨</div>
+        <div class="float-element" style="--delay: 2s;">💎</div>
+        <div class="float-element" style="--delay: 3s;">🌸</div>
+      </div>
+
+      <header class="cloud-header">
+        <button class="back-btn" onclick="navigateTo('index.html')">
+          <span>← Home</span>
+        </button>
+        <div class="header-title">
+          <span class="page-emoji">☁️</span>
+          <h1>Your Cloud</h1>
+          <p>All your mindful drops collected</p>
+        </div>
+      </header>
+
+      <main class="cloud-main">
+        <div class="cloud-stats">
+          <div class="stat-card">
+            <span class="stat-number" id="totalDrops">0</span>
+            <span class="stat-label">Total Drops</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number" id="currentStreak">0</span>
+            <span class="stat-label">Day Streak</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number" id="thisWeek">0</span>
+            <span class="stat-label">This Week</span>
+          </div>
+        </div>
+
+        <div class="drops-container">
+          <div class="drops-filter">
+            <button class="filter-btn active" data-filter="all" onclick="filterDrops('all')">All</button>
+            <button class="filter-btn" data-filter="gratitude" onclick="filterDrops('gratitude')">🙏 Gratitude</button>
+            <button class="filter-btn" data-filter="journal" onclick="filterDrops('journal')">📖 Journal</button>
+            <button class="filter-btn" data-filter="task" onclick="filterDrops('task')">✅ Tasks</button>
+            <button class="filter-btn" data-filter="activity" onclick="filterDrops('activity')">🧘 Activities</button>
+          </div>
+
+          <div class="drops-grid" id="dropsGrid">
+            <!-- Drops will be loaded here -->
+          </div>
+
+          <div class="empty-cloud" id="emptyCloud" style="display: none;">
+            <div class="empty-icon">☁️</div>
+            <h3>Your cloud is empty</h3>
+            <p>Start some mindful activities to collect drops!</p>
+            <button class="primary-btn" onclick="navigateTo('index.html')">Start Mindful Mode</button>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/cloud.js"></script>
+  </body>
+</html>

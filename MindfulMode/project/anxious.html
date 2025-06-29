@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>😰 Anxious Vibes - MindfulMode</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/activities.css">
+  </head>
+  <body>
+    <div class="page-container">
+      <div class="floating-bg">
+        <div class="float-element" style="--delay: 0s;">💙</div>
+        <div class="float-element" style="--delay: 1s;">🌊</div>
+        <div class="float-element" style="--delay: 2s;">✨</div>
+        <div class="float-element" style="--delay: 3s;">💎</div>
+      </div>
+
+      <header class="mood-header">
+        <button class="back-btn" onclick="navigateTo('index.html')">
+          <span>← Home</span>
+        </button>
+        <div class="mood-title">
+          <span class="mood-emoji-large">😰</span>
+          <h1>Anxious Vibes</h1>
+          <p>Let's find your calm together</p>
+        </div>
+        <button class="switch-mood-btn" onclick="navigateTo('index.html')">
+          <span>Switch Mood</span>
+        </button>
+      </header>
+
+      <main class="activities-main">
+        <div class="activities-grid">
+          
+          <!-- Breathe With Me -->
+          <div class="activity-card" data-activity="breathe">
+            <div class="activity-header">
+              <span class="activity-icon">🫁</span>
+              <h3>Breathe With Me</h3>
+              <p>4-7-8 breathing technique</p>
+            </div>
+            <div class="activity-content">
+              <div class="breathing-circle" id="breathingCircle">
+                <div class="breath-text" id="breathText">Click to Start</div>
+              </div>
+              <div class="breath-controls">
+                <button class="activity-btn" id="startBreathBtn" onclick="startBreathing()">Start</button>
+                <button class="activity-btn secondary" id="stopBreathBtn" onclick="stopBreathing()" style="display: none;">Stop</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Gratitude Drop -->
+          <div class="activity-card" data-activity="gratitude">
+            <div class="activity-header">
+              <span class="activity-icon">🙏</span>
+              <h3>Gratitude Drop</h3>
+              <p>What are you grateful for?</p>
+            </div>
+            <div class="activity-content">
+              <textarea 
+                class="gratitude-input" 
+                id="gratitudeText" 
+                placeholder="I'm grateful for... ✨"
+                maxlength="200">
+              </textarea>
+              <button class="activity-btn" onclick="saveGratitude()">
+                <span>Drop it in your cloud ☁️</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Zen Music -->
+          <div class="activity-card" data-activity="music">
+            <div class="activity-header">
+              <span class="activity-icon">🎵</span>
+              <h3>Zen Music</h3>
+              <p>Calming sounds for 10 minutes</p>
+            </div>
+            <div class="activity-content">
+              <div class="music-player">
+                <div class="music-visual" id="musicVisual">
+                  <div class="sound-wave"></div>
+                  <div class="sound-wave"></div>
+                  <div class="sound-wave"></div>
+                  <div class="sound-wave"></div>
+                </div>
+                <div class="music-controls">
+                  <button class="activity-btn" id="playMusicBtn" onclick="playZenMusic()">Play</button>
+                  <button class="activity-btn secondary" id="stopMusicBtn" onclick="stopZenMusic()" style="display: none;">Stop</button>
+                </div>
+                <div class="music-timer" id="musicTimer">10:00</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mood Journal -->
+          <div class="activity-card" data-activity="journal">
+            <div class="activity-header">
+              <span class="activity-icon">📖</span>
+              <h3>Mood Journal</h3>
+              <p>Write your thoughts</p>
+            </div>
+            <div class="activity-content">
+              <textarea 
+                class="journal-input" 
+                id="journalText" 
+                placeholder="How are you feeling right now? Let it all out... 💭">
+              </textarea>
+              <div class="journal-actions">
+                <button class="activity-btn" onclick="saveJournal()">Save Entry</button>
+                <button class="activity-btn secondary" onclick="exportJournal()">Export as .txt</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </main>
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/quotes.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/activities.js"></script>
+    <script src="js/anxious.js"></script>
+  </body>
+</html>

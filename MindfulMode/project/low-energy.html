@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>😴 Low Energy - MindfulMode</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/activities.css">
+  </head>
+  <body>
+    <div class="page-container">
+      <div class="floating-bg">
+        <div class="float-element" style="--delay: 0s;">💤</div>
+        <div class="float-element" style="--delay: 1s;">🌙</div>
+        <div class="float-element" style="--delay: 2s;">⭐</div>
+        <div class="float-element" style="--delay: 3s;">🔋</div>
+      </div>
+
+      <header class="mood-header">
+        <button class="back-btn" onclick="navigateTo('index.html')">
+          <span>← Home</span>
+        </button>
+        <div class="mood-title">
+          <span class="mood-emoji-large">😴</span>
+          <h1>Low Energy Mode</h1>
+          <p>Time to recharge your vibes</p>
+        </div>
+        <button class="switch-mood-btn" onclick="navigateTo('index.html')">
+          <span>Switch Mood</span>
+        </button>
+      </header>
+
+      <main class="activities-main">
+        <div class="activities-grid">
+          
+          <!-- Power Nap Timer -->
+          <div class="activity-card" data-activity="nap">
+            <div class="activity-header">
+              <span class="activity-icon">💤</span>
+              <h3>Power Nap Timer</h3>
+              <p>20-minute energy boost</p>
+            </div>
+            <div class="activity-content">
+              <div class="breathing-circle" id="napTimer">
+                <div class="breath-text" id="napText">20:00</div>
+              </div>
+              <div class="breath-controls">
+                <button class="activity-btn" id="startNapBtn" onclick="startNapTimer()">Start Nap</button>
+                <button class="activity-btn secondary" id="stopNapBtn" onclick="stopNapTimer()" style="display: none;">Stop</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Energy Journal -->
+          <div class="activity-card" data-activity="energy">
+            <div class="activity-header">
+              <span class="activity-icon">🔋</span>
+              <h3>Energy Check</h3>
+              <p>What's draining your battery?</p>
+            </div>
+            <div class="activity-content">
+              <textarea 
+                class="gratitude-input" 
+                id="energyText" 
+                placeholder="What's making you feel low energy today? 💭"
+                maxlength="200">
+              </textarea>
+              <button class="activity-btn" onclick="saveEnergyCheck()">
+                <span>Save to cloud ☁️</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Gentle Sounds -->
+          <div class="activity-card" data-activity="sounds">
+            <div class="activity-header">
+              <span class="activity-icon">🌊</span>
+              <h3>Gentle Sounds</h3>
+              <p>Soft ocean waves</p>
+            </div>
+            <div class="activity-content">
+              <div class="music-player">
+                <div class="music-visual" id="gentleMusicVisual">
+                  <div class="sound-wave"></div>
+                  <div class="sound-wave"></div>
+                  <div class="sound-wave"></div>
+                  <div class="sound-wave"></div>
+                </div>
+                <div class="music-controls">
+                  <button class="activity-btn" id="playGentleBtn" onclick="playGentleMusic()">Play</button>
+                  <button class="activity-btn secondary" id="stopGentleBtn" onclick="stopGentleMusic()" style="display: none;">Stop</button>
+                </div>
+                <div class="music-timer" id="gentleTimer">10:00</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mood Journal -->
+          <div class="activity-card" data-activity="journal">
+            <div class="activity-header">
+              <span class="activity-icon">📖</span>
+              <h3>Rest Journal</h3>
+              <p>How are you feeling?</p>
+            </div>
+            <div class="activity-content">
+              <textarea 
+                class="journal-input" 
+                id="restJournalText" 
+                placeholder="What would help you feel more energized? 🌱">
+              </textarea>
+              <div class="journal-actions">
+                <button class="activity-btn" onclick="saveRestJournal()">Save Entry</button>
+                <button class="activity-btn secondary" onclick="exportJournal()">Export as .txt</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </main>
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/quotes.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/activities.js"></script>
+    <script src="js/low-energy.js"></script>
+  </body>
+</html>

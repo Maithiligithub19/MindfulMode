@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>⚙️ Settings - MindfulMode</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/settings.css">
+  </head>
+  <body>
+    <div class="page-container">
+      <div class="floating-bg">
+        <div class="float-element" style="--delay: 0s;">⚙️</div>
+        <div class="float-element" style="--delay: 1s;">🎨</div>
+        <div class="float-element" style="--delay: 2s;">🔊</div>
+        <div class="float-element" style="--delay: 3s;">🌙</div>
+      </div>
+
+      <header class="settings-header">
+        <button class="back-btn" onclick="navigateTo('index.html')">
+          <span>← Home</span>
+        </button>
+        <div class="header-title">
+          <span class="page-emoji">⚙️</span>
+          <h1>Settings</h1>
+          <p>Customize your mindful experience</p>
+        </div>
+      </header>
+
+      <main class="settings-main">
+        <div class="settings-sections">
+          
+          <!-- Theme Settings -->
+          <div class="settings-section">
+            <h3>🎨 Theme & Appearance</h3>
+            <div class="theme-selector">
+              <div class="theme-option" data-theme="neon" onclick="changeTheme('neon')">
+                <div class="theme-preview neon-theme"></div>
+                <span>Neon</span>
+              </div>
+              <div class="theme-option" data-theme="soft" onclick="changeTheme('soft')">
+                <div class="theme-preview soft-theme"></div>
+                <span>Soft</span>
+              </div>
+              <div class="theme-option" data-theme="sepia" onclick="changeTheme('sepia')">
+                <div class="theme-preview sepia-theme"></div>
+                <span>Sepia</span>
+              </div>
+              <div class="theme-option" data-theme="dark" onclick="changeTheme('dark')">
+                <div class="theme-preview dark-theme"></div>
+                <span>Dark</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sound Settings -->
+          <div class="settings-section">
+            <h3>🔊 Sound & Audio</h3>
+            <div class="setting-item">
+              <label class="setting-label">
+                <span>Background Music</span>
+                <div class="toggle-switch">
+                  <input type="checkbox" id="backgroundMusicToggle" onchange="toggleBackgroundMusic()">
+                  <span class="toggle-slider"></span>
+                </div>
+              </label>
+            </div>
+            <div class="setting-item">
+              <label class="setting-label">
+                <span>Sound Effects</span>
+                <div class="toggle-switch">
+                  <input type="checkbox" id="soundEffectsToggle" checked onchange="toggleSoundEffects()">
+                  <span class="toggle-slider"></span>
+                </div>
+              </label>
+            </div>
+            <div class="setting-item">
+              <label class="setting-label">
+                <span>Master Volume</span>
+                <input type="range" id="masterVolume" min="0" max="100" value="70" onchange="changeMasterVolume(this.value)">
+              </label>
+            </div>
+          </div>
+
+          <!-- Notification Settings -->
+          <div class="settings-section">
+            <h3>🔔 Reminders</h3>
+            <div class="setting-item">
+              <label class="setting-label">
+                <span>Mood Check Reminders</span>
+                <div class="toggle-switch">
+                  <input type="checkbox" id="moodRemindersToggle" onchange="toggleMoodReminders()">
+                  <span class="toggle-slider"></span>
+                </div>
+              </label>
+            </div>
+            <div class="setting-item">
+              <label class="setting-label">
+                <span>Reminder Frequency</span>
+                <select id="reminderFrequency" onchange="changeReminderFrequency(this.value)">
+                  <option value="1">Every hour</option>
+                  <option value="2" selected>Every 2 hours</option>
+                  <option value="4">Every 4 hours</option>
+                  <option value="8">Twice a day</option>
+                </select>
+              </label>
+            </div>
+          </div>
+
+          <!-- Data Settings -->
+          <div class="settings-section">
+            <h3>💾 Data & Privacy</h3>
+            <div class="setting-item">
+              <div class="data-stats">
+                <p>Total Drops: <span id="totalDropsCount">0</span></p>
+                <p>Journal Entries: <span id="journalEntriesCount">0</span></p>
+                <p>Tasks Completed: <span id="tasksCompletedCount">0</span></p>
+              </div>
+            </div>
+            <div class="setting-item">
+              <button class="danger-btn" onclick="exportAllData()">
+                📤 Export All Data
+              </button>
+            </div>
+            <div class="setting-item">
+              <button class="danger-btn" onclick="confirmResetData()">
+                🗑️ Reset All Data
+              </button>
+            </div>
+          </div>
+
+          <!-- About -->
+          <div class="settings-section">
+            <h3>ℹ️ About</h3>
+            <div class="about-content">
+              <p><strong>MindfulMode v1.0</strong></p>
+              <p>Your Gen Z companion for digital wellness and mindful living.</p>
+              <p>Made with ✨ and lots of good vibes</p>
+            </div>
+          </div>
+
+        </div>
+      </main>
+    </div>
+
+    <!-- Reset Confirmation Modal -->
+    <div class="modal-overlay" id="resetModal" style="display: none;">
+      <div class="modal-content">
+        <h3>⚠️ Reset All Data?</h3>
+        <p>This will permanently delete all your drops, journal entries, tasks, and settings. This action cannot be undone.</p>
+        <div class="modal-actions">
+          <button class="secondary-btn" onclick="closeResetModal()">Cancel</button>
+          <button class="danger-btn" onclick="resetAllData()">Yes, Reset Everything</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/themes.js"></script>
+    <script src="js/settings.js"></script>
+  </body>
+</html>

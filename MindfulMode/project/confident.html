@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>😎 Confident - MindfulMode</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/activities.css">
+  </head>
+  <body>
+    <div class="page-container">
+      <div class="floating-bg">
+        <div class="float-element" style="--delay: 0s;">⚡</div>
+        <div class="float-element" style="--delay: 1s;">🔥</div>
+        <div class="float-element" style="--delay: 2s;">💪</div>
+        <div class="float-element" style="--delay: 3s;">👑</div>
+      </div>
+
+      <header class="mood-header">
+        <button class="back-btn" onclick="navigateTo('index.html')">
+          <span>← Home</span>
+        </button>
+        <div class="mood-title">
+          <span class="mood-emoji-large">😎</span>
+          <h1>Confident Mode</h1>
+          <p>Ready to conquer today</p>
+        </div>
+        <button class="switch-mood-btn" onclick="navigateTo('index.html')">
+          <span>Switch Mood</span>
+        </button>
+      </header>
+
+      <main class="activities-main">
+        <div class="activities-grid">
+          
+          <!-- Power Affirmations -->
+          <div class="activity-card" data-activity="affirmations">
+            <div class="activity-header">
+              <span class="activity-icon">💪</span>
+              <h3>Power Affirmations</h3>
+              <p>Boost your confidence</p>
+            </div>
+            <div class="activity-content">
+              <div class="breathing-circle" id="affirmationCircle">
+                <div class="breath-text" id="affirmationText">Click to Start</div>
+              </div>
+              <div class="breath-controls">
+                <button class="activity-btn" id="startAffirmationBtn" onclick="startAffirmations()">Start</button>
+                <button class="activity-btn secondary" id="stopAffirmationBtn" onclick="stopAffirmations()" style="display: none;">Stop</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Win Journal -->
+          <div class="activity-card" data-activity="wins">
+            <div class="activity-header">
+              <span class="activity-icon">🏆</span>
+              <h3>Today's Wins</h3>
+              <p>Celebrate your achievements</p>
+            </div>
+            <div class="activity-content">
+              <textarea 
+                class="gratitude-input" 
+                id="winsText" 
+                placeholder="What did you accomplish today? Big or small! 🎉"
+                maxlength="200">
+              </textarea>
+              <button class="activity-btn" onclick="saveWins()">
+                <span>Add to victory cloud 🏆</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Energizing Music -->
+          <div class="activity-card" data-activity="energy-music">
+            <div class="activity-header">
+              <span class="activity-icon">🎵</span>
+              <h3>Energy Boost</h3>
+              <p>Uplifting sounds for 10 minutes</p>
+            </div>
+            <div class="activity-content">
+              <div class="music-player">
+                <div class="music-visual" id="energyMusicVisual">
+                  <div class="sound-wave"></div>
+                  <div class="sound-wave"></div>
+                  <div class="sound-wave"></div>
+                  <div class="sound-wave"></div>
+                </div>
+                <div class="music-controls">
+                  <button class="activity-btn" id="playEnergyBtn" onclick="playEnergyMusic()">Play</button>
+                  <button class="activity-btn secondary" id="stopEnergyBtn" onclick="stopEnergyMusic()" style="display: none;">Stop</button>
+                </div>
+                <div class="music-timer" id="energyTimer">10:00</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Confidence Journal -->
+          <div class="activity-card" data-activity="journal">
+            <div class="activity-header">
+              <span class="activity-icon">📖</span>
+              <h3>Confidence Journal</h3>
+              <p>Channel your power</p>
+            </div>
+            <div class="activity-content">
+              <textarea 
+                class="journal-input" 
+                id="confidenceJournalText" 
+                placeholder="What makes you feel most confident? What are you proud of? 👑">
+              </textarea>
+              <div class="journal-actions">
+                <button class="activity-btn" onclick="saveConfidenceJournal()">Save Entry</button>
+                <button class="activity-btn secondary" onclick="exportJournal()">Export as .txt</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </main>
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/quotes.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/activities.js"></script>
+    <script src="js/confident.js"></script>
+  </body>
+</html>

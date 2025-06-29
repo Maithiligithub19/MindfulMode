@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🌈 MindfulMode - What's Your Vibe?</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/home.css">
+  </head>
+  <body>
+    <div class="page-container">
+      <!-- Floating background elements -->
+      <div class="floating-bg">
+        <div class="float-element" style="--delay: 0s;">🌟</div>
+        <div class="float-element" style="--delay: 1s;">✨</div>
+        <div class="float-element" style="--delay: 2s;">🫧</div>
+        <div class="float-element" style="--delay: 3s;">💫</div>
+        <div class="float-element" style="--delay: 4s;">🌸</div>
+      </div>
+
+      <header class="app-header">
+        <div class="logo">
+          <span class="logo-text">🌈 MindfulMode</span>
+        </div>
+        <nav class="nav-buttons">
+          <button class="nav-btn" onclick="navigateTo('cloud.html')">
+            <span>☁️ Your Cloud</span>
+          </button>
+          <button class="nav-btn" onclick="navigateTo('settings.html')">
+            <span>⚙️ Settings</span>
+          </button>
+        </nav>
+      </header>
+
+      <main class="home-main">
+        <div class="hero-section">
+          <h1 class="hero-title">
+            <span class="title-line animate-slide-up">What's Your</span>
+            <span class="title-line animate-slide-up rainbow-text" style="--delay: 0.2s">Vibe Today?</span>
+          </h1>
+          
+          <div class="mood-selector">
+            <div class="mood-grid">
+              <div class="mood-card" data-mood="anxious" onclick="selectMood('anxious')">
+                <div class="mood-emoji">😰</div>
+                <div class="mood-label">Anxious</div>
+                <div class="mood-desc">Need to breathe & chill</div>
+              </div>
+              
+              <div class="mood-card" data-mood="low-energy" onclick="selectMood('low-energy')">
+                <div class="mood-emoji">😴</div>
+                <div class="mood-label">Low Energy</div>
+                <div class="mood-desc">Time to recharge vibes</div>
+              </div>
+              
+              <div class="mood-card" data-mood="confident" onclick="selectMood('confident')">
+                <div class="mood-emoji">😎</div>
+                <div class="mood-label">Confident</div>
+                <div class="mood-desc">Ready to conquer today</div>
+              </div>
+              
+              <div class="mood-card" data-mood="unfocused" onclick="selectMood('unfocused')">
+                <div class="mood-emoji">😕</div>
+                <div class="mood-label">Unfocused</div>
+                <div class="mood-desc">Need clarity & direction</div>
+              </div>
+              
+              <div class="mood-card" data-mood="excited" onclick="selectMood('excited')">
+                <div class="mood-emoji">😄</div>
+                <div class="mood-label">Excited</div>
+                <div class="mood-desc">Channel that energy!</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="action-buttons">
+            <button class="primary-btn glow-btn" id="startMindfulBtn" onclick="startMindfulMode()">
+              <span>✨ Start Mindful Mode</span>
+            </button>
+            
+            <div class="secondary-actions">
+              <button class="secondary-btn" onclick="navigateTo('tasks.html')">
+                <span>📝 Tasks</span>
+              </button>
+              <button class="secondary-btn" onclick="navigateTo('leaderboard.html')">
+                <span>🏆 Leaderboard</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="daily-quote">
+        <div class="quote-container">
+          <p class="quote-text" id="dailyQuote">Loading your daily motivation...</p>
+          <span class="quote-author" id="quoteAuthor"></span>
+        </div>
+      </footer>
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/themes.js"></script>
+    <script src="js/quotes.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/home.js"></script>
+  </body>
+</html>

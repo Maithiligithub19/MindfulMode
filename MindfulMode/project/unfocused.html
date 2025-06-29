@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>😕 Unfocused - MindfulMode</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/activities.css">
+  </head>
+  <body>
+    <div class="page-container">
+      <div class="floating-bg">
+        <div class="float-element" style="--delay: 0s;">🎯</div>
+        <div class="float-element" style="--delay: 1s;">🧠</div>
+        <div class="float-element" style="--delay: 2s;">⚡</div>
+        <div class="float-element" style="--delay: 3s;">🔍</div>
+      </div>
+
+      <header class="mood-header">
+        <button class="back-btn" onclick="navigateTo('index.html')">
+          <span>← Home</span>
+        </button>
+        <div class="mood-title">
+          <span class="mood-emoji-large">😕</span>
+          <h1>Focus Mode</h1>
+          <p>Need clarity & direction</p>
+        </div>
+        <button class="switch-mood-btn" onclick="navigateTo('index.html')">
+          <span>Switch Mood</span>
+        </button>
+      </header>
+
+      <main class="activities-main">
+        <div class="activities-grid">
+          
+          <!-- Focus Breathing -->
+          <div class="activity-card" data-activity="focus-breathe">
+            <div class="activity-header">
+              <span class="activity-icon">🧠</span>
+              <h3>Focus Breathing</h3>
+              <p>Box breathing for clarity</p>
+            </div>
+            <div class="activity-content">
+              <div class="breathing-circle" id="focusBreathingCircle">
+                <div class="breath-text" id="focusBreathText">Click to Start</div>
+              </div>
+              <div class="breath-controls">
+                <button class="activity-btn" id="startFocusBreathBtn" onclick="startFocusBreathing()">Start</button>
+                <button class="activity-btn secondary" id="stopFocusBreathBtn" onclick="stopFocusBreathing()" style="display: none;">Stop</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Priority Drop -->
+          <div class="activity-card" data-activity="priority">
+            <div class="activity-header">
+              <span class="activity-icon">🎯</span>
+              <h3>Priority Drop</h3>
+              <p>What needs your focus most?</p>
+            </div>
+            <div class="activity-content">
+              <textarea 
+                class="gratitude-input" 
+                id="priorityText" 
+                placeholder="What's the ONE thing you need to focus on right now? 🎯"
+                maxlength="200">
+              </textarea>
+              <button class="activity-btn" onclick="savePriority()">
+                <span>Lock in focus 🔒</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Focus Sounds -->
+          <div class="activity-card" data-activity="focus-music">
+            <div class="activity-header">
+              <span class="activity-icon">🎵</span>
+              <h3>Focus Sounds</h3>
+              <p>White noise for concentration</p>
+            </div>
+            <div class="activity-content">
+              <div class="music-player">
+                <div class="music-visual" id="focusMusicVisual">
+                  <div class="sound-wave"></div>
+                  <div class="sound-wave"></div>
+                  <div class="sound-wave"></div>
+                  <div class="sound-wave"></div>
+                </div>
+                <div class="music-controls">
+                  <button class="activity-btn" id="playFocusBtn" onclick="playFocusMusic()">Play</button>
+                  <button class="activity-btn secondary" id="stopFocusBtn" onclick="stopFocusMusic()" style="display: none;">Stop</button>
+                </div>
+                <div class="music-timer" id="focusTimer">25:00</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Clarity Journal -->
+          <div class="activity-card" data-activity="journal">
+            <div class="activity-header">
+              <span class="activity-icon">📖</span>
+              <h3>Clarity Journal</h3>
+              <p>Clear your mental fog</p>
+            </div>
+            <div class="activity-content">
+              <textarea 
+                class="journal-input" 
+                id="clarityJournalText" 
+                placeholder="What's clouding your focus? Brain dump everything here... 🌫️">
+              </textarea>
+              <div class="journal-actions">
+                <button class="activity-btn" onclick="saveClarityJournal()">Save Entry</button>
+                <button class="activity-btn secondary" onclick="exportJournal()">Export as .txt</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </main>
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/quotes.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/activities.js"></script>
+    <script src="js/unfocused.js"></script>
+  </body>
+</html>
